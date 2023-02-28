@@ -74,7 +74,8 @@ class Program
                 case 1:
                     //Add new journal entry
                     Console.WriteLine("Please write an entry");
-                    string questionPrompt = askQuestion();  //ask a random question
+                    Question questionPrompt = new Question();  //ask a random question using the question class that was made
+                    
                     Console.WriteLine(questionPrompt); //Display question to user
                     string entry = Console.ReadLine(); //Get response from user
                     myTimeStamp = DateTime.Now; //Date and time operator wrote their response
@@ -117,7 +118,7 @@ class Program
             }
             
         } while (menuOption != 5);
-
+/*
         //asking a random question
         static string askQuestion()
         {
@@ -145,7 +146,7 @@ class Program
             return myQuestion;
 
         }
-
+*/
         //Save to file
         static void saveJournal(List<string> JE,string mp)
         {
@@ -193,7 +194,7 @@ class Program
             return JournalEntry;
         }
 
-        static string PromptUserForJournal()
+/*         static string PromptUserForJournal()
         {
             //Get our current path
             string myPath = Directory.GetCurrentDirectory();
@@ -229,15 +230,8 @@ class Program
             }
             return userSelection;
         }
-
+ */
     }
 
-}
-
-
-
-
-
-
-
+};
 
