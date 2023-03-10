@@ -1,7 +1,7 @@
 public class LoadFromFile
 {
-	private string _scripture
+	private string _scripture;
 
-	Scripture bookName = new Scripture();
-	return bookName.GetBook
+	//Scripture bookName = new Scripture();
+	//eturn bookName.GetBook
 }

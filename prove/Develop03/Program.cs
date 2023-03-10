@@ -39,5 +39,21 @@ class Program
     static void Main(string[] args)
     {
         Console.WriteLine("Hello Develop03 World!");
+        Scripture scripture = new Scripture(string book int chap int verse);
+
+        ScriptureMemorizer scriputreMemorizer = new ScriptureMemorizer(scripture);
+
+        string userInput = "";
+
+        while userInput != "quit" && scriputreMemorizer.hasWordsLeft == true)
+        {
+            Console.Clear();
+            Console.WriteLine(string.Format("{0} {1}", scriptureReference.toString(), scriputreMemorizer.toString()));
+            Console.WriteLine();
+            Console.ReadLine();
+            scriputreMemorizer.removeWordsFromText();
+
+        };
+
     }
 }
