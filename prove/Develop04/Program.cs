@@ -13,22 +13,8 @@ class Program
 
         //Adding prompt to the list of prompts
         ReflectionActivity prompt = new ReflectionActivity();
-        /*prompt._Prompts.Add("Think of a time when you stood up for someone else.");
-        prompt._Prompts.Add("Think of a time when you did something really difficult.");
-        prompt._Prompts.Add("Think of a time when you helped someone in need.");
-        prompt._Prompts.Add("Think of a time when you did something truly selfless.");*/
-
         //Adding questions to the list of question to reflect
         ReflectionActivity questionToReflect = new ReflectionActivity();
-        /*questionToReflect._Questions.Add("Why was this experience meaningful to you?");
-        questionToReflect._Questions.Add("Have you ever done anything like this before?");
-        questionToReflect._Questions.Add("How did you get started?");
-        questionToReflect._Questions.Add("How did you feel when it was complete?");
-        questionToReflect._Questions.Add("What made this time different than other times when you were not as successful?");
-        questionToReflect._Questions.Add("What is your favorite thing about this experience?");
-        questionToReflect._Questions.Add("What could you learn from this experience that applies to other situations?");
-        questionToReflect._Questions.Add("What did you learn about yourself through this experience?");
-        questionToReflect._Questions.Add("How can you keep this experience in mind in the future?");*/
 
         Random ranPrompt = new Random();
         int randNumber = ranPrompt.Next(0, prompt._Prompts.Count);
@@ -40,12 +26,6 @@ class Program
 
         //Adding a list of prompts to the prompt liste for the listening activity.
         ListeningActivity prompts = new ListeningActivity();
-        prompts._Prompts.Add("Who are people that you appreciate?");
-        prompts._Prompts.Add("What are personal strengths of yours?");
-        prompts._Prompts.Add("Who are people that you have helped this week?");
-        prompts._Prompts.Add("When have you felt the Holy Ghost this month?");
-        prompts._Prompts.Add("Who are some of your personal heroes?");
-
         //etting a random numeber of prompts from the list.
         Random listeningQuestion = new Random();
         int listeningQuestionNum = listeningQuestion.Next(0, prompt._Prompts.Count);
