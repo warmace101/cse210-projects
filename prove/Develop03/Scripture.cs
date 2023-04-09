@@ -8,13 +8,6 @@ public class Scripture
 
 
 
-    public Scripture(string book, int chapter, string verse)
-    {
-        _book= book;
-        _chapter= chapter;
-        _verseStart= verse;
-    }
-
     public Scripture(string book, int chapter, string verseStart, string verseEnd)
     {
         _book = book;
@@ -23,21 +16,7 @@ public class Scripture
         _verseEnd = verseEnd;
     }
 
-    static bool ValidVerse()
-    {
-        return true;
-    }
-
-    static bool ValidRange()
-    {
-        return true;
-    }
-
-    static bool ValidBook()
-    {
-        return true;
-    }
-
+  
     public string GetBook()
     {
         return _book;
@@ -50,8 +29,11 @@ public class Scripture
 
     public string GetVerse()
     { 
-        return _verseStart + _verseEnd; 
+        return _verseEnd; 
     }
-
+    public string GetVersNum()
+    {
+        return _verseStart;
+    }
 
 }

@@ -38,6 +38,102 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Develop03 World!");
+        //Load Book Of Mormon text from a file
+        LoadFromFile myFile = new LoadFromFile();
+        string[] parsedBom = myFile.getParsedBom();
+        //Load the text into scripture class
+        Scripture[] allScriptures = new Scripture[parsedBom.Length];
+        int scripCount = 0;
+        foreach (string i in parsedBom)
+        {
+            string[] chapVers = i.Split(':');
+            Array.Resize(ref chapVers, 3); //I only want the first two : in the string.  Some versus have ":" in the text.
+            allScriptures[scripCount] = new Scripture(chapVers[0], Convert.ToInt32(chapVers[1]), chapVers[2].Substring(0,chapVers[2].IndexOf(" ")), chapVers[2].Substring(chapVers[2].IndexOf(" ")).Trim());//this is a little confusing.  The last part removes the verse number from the actual verse string.
+            scripCount = scripCount + 1;
+        }
+        bool continueApp = true;
+        do
+        {
+            Console.Clear();
+            Menu();
+            string strSelection = Console.ReadLine();
+            switch (strSelection)
+            {
+                case "1":
+                    Console.Clear();
+                    runTextHidder(allScriptures);
+                    break;
+                case "4"://exit app
+                    continueApp = false;
+                    break;
+                default:
+                    Console.WriteLine("That option isn't supported, please select again.");
+                    break;
+
+            }
+
+        }while(continueApp);
+        Console.WriteLine("Thanks for playing and have a great day!");
+
+
+
+    }
+
+    static void runTextHidder(Scripture[] allScripts)
+    {
+        Console.WriteLine("Please enter a scrupture from the Book Of Mormon you want to master.");
+        Console.WriteLine("Use this format to enter in the verse 1 Nephi:1:1 please note the : is important");
+        Console.WriteLine("If you enter an incorrect scripture you will get 1 Nephi:1:1, because every has that memorized!!");
+        string newScripture = Console.ReadLine();
+
+        int intScripLocation = 0;
+        //look for my scripture in the loaded scriptures
+        for (int i = 0; i < allScripts.Length; i++)
+        {
+            string newStr = allScripts[i].GetBook() + ":" + allScripts[i].GetChapter().ToString() + ":" + allScripts[i].GetVersNum();
+            if (newStr == newScripture)
+            {
+                intScripLocation = i;
+                break;
+            }
+        }
+
+        
+        Console.WriteLine("\r\n\r\n");
+        StringHider myTestString = new StringHider(allScripts[intScripLocation].GetVerse());
+        
+        string strResponse = "Y";
+        while (strResponse != "N" && strResponse != "n") //catch upper and lower case use
+        {
+            Console.Clear();
+            Console.WriteLine("One of the words has been hidden\r\n\r\n");
+            myTestString.hideThemWords();
+            
+            myTestString.listOutWords();
+            if (myTestString.AllDoneCheck())
+            {
+                Console.WriteLine("All of the words have been hidden, thanks for playing!");
+                strResponse = "N";
+            }
+            else
+            {
+                Console.WriteLine("\r\n\r\nWould you like to hide another word?");
+                Console.WriteLine("Continue = Y, Exit = N");
+                strResponse = Console.ReadLine().Trim();
+            }
+
+        }
+    }
+
+    static void Menu()
+    {
+        //Display a menu to the user
+        Console.WriteLine("Welcome the the scripture memorizer app!");
+        Console.WriteLine("Please select from the following options.");
+        Console.WriteLine("1.  Master scriptures from the Book Of Mormon.");
+        //Console.WriteLine("2.  Master scriptures from the Old Testiment.");//future feature
+        //Console.WriteLine("3.  Master scriptures from the New Testiment.");//future feature
+        Console.WriteLine("4.  Exit the Scriptures Mastery App.");
+
     }
 }

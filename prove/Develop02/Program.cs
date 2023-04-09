@@ -194,7 +194,7 @@ class Program
             return JournalEntry;
         }
 
-/*         static string PromptUserForJournal()
+         static string PromptUserForJournal()
         {
             //Get our current path
             string myPath = Directory.GetCurrentDirectory();
@@ -230,7 +230,7 @@ class Program
             }
             return userSelection;
         }
- */
+ 
     }
 
 };
