@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "Dungeons and Dragons Character Creation/1.0.0": {
+        "runtime": {
+          "Dungeons and Dragons Character Creation.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Dungeons and Dragons Character Creation/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
